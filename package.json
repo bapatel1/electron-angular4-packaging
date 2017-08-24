@@ -1,7 +1,7 @@
 {
     "name": "ngelectron",
     "description": "Simple TODO application built with Electron and AngularJS with packaging.",
-    "version": "0.0.1",
+    "version": "0.1.6",
     "author": "Bhavin Patel <bhavin.ibm@hotmail.com>",
     "license": "MIT",
     "main": "./electron/electron.js",
@@ -14,29 +14,40 @@
         "e2e": "ng e2e",
         "build-electron": "ng build --base-href . && copy ngelectron.ico dist",
         "electron": "npm run build-electron && electron .",
-        "dist": "electron-builder --win --x64 --ia32"
+        "dist": "electron-builder --win --x64 --ia32  && copy releases\\win publish && copy releases\\win-ia32 publish && rmdir releases"
     },
     "build": {
         "appId": "com.example.app",
-        "asar": false,
-        "compression": "store",
+        "asar": true,
+        "compression": "maximum",
         "files": [
             "electron",
             "dist"
         ],
         "directories": {
-            "buildResources": "build",
+            "buildResources": "dist",
             "output": "releases"
         },
         "copyright": "©2017 Kandra Labs, Inc.",
         "win": {
             "target": "squirrel",
             "icon": "dist/ngelectron.ico",
-            "publisherName": "Bhavin Patel"
-
+            "publisherName": "Bhavin Patel",
+            "certificateFile": "ngelectroncert.pfx",
+            "certificatePassword": "ngelectron"
+        },
+        "releaseInfo": {
+            "releaseName": "ngElectron-alpha",
+            "releaseNotesFile": "release-notes.md"
+        },
+        "nsis": {
+            "perMachine": true,
+            "createDesktopShortcut": true,
+            "shortcutName": "ngElectron"
         },
         "squirrelWindows": {
-            "iconUrl": "http://www.iconeasy.com/icon/ico/Kids/Crazy%20Eye/CrazyEye%20Dance%20256x256.ico"
+            "iconUrl": "http://www.iconeasy.com/icon/ico/Kids/Crazy%20Eye/CrazyEye%20Dance%20256x256.ico",
+            "remoteReleases": "http://localhost:9000/"
         }
     },
     "private": true,

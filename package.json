@@ -18,7 +18,12 @@
     },
     "build": {
         "appId": "com.example.app",
-        "asar": true,
+        "asar": false,
+        "compression": "store",
+        "files": [
+            "electron",
+            "dist"
+        ],
         "directories": {
             "buildResources": "build",
             "output": "releases"

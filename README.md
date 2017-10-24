@@ -4,7 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Running on Dev Mode ? 
 
-Refer `https://blog.avocode.com/blog/get-that-damn-windows-auto-update-working-on-electron`
+Refer 
+- `https://blog.avocode.com/blog/get-that-damn-windows-auto-update-working-on-electron`
+- `https://medium.com/how-to-electron/a-complete-guide-to-packaging-your-electron-app-1bdc717d739f`
+- `https://medium.com/@jamzi/building-desktop-applications-with-electron-electron-builder-47484193cbcc`
+- `https://www.electron.build/configuration/publish`
 
 ## Development server
 
